@@ -6,13 +6,15 @@ import "regenerator-runtime/runtime";
 
 import rootReducer from "./root-reducer"
 import productListSagas from "pages/products/list/slice/sagas"
+import productDetailSagas from "pages/products/detail/slice/sagas"
 
 const sagaMiddleware = createSagaMiddleware();
 const store = createStore(rootReducer, applyMiddleware(sagaMiddleware, logger));
 
 function* rootSagas() {
     yield all([
-        productListSagas()
+        productListSagas(),
+        productDetailSagas()
     ])
 }
 

@@ -3,6 +3,7 @@ import { ACTIONS } from "./slice/dux"
 import { useDispatch, useSelector } from "react-redux"
 import { selectProducts } from "./slice/dux"
 
+import Template from "shared/templates/Main"
 import Table from "shared/components/organism/Table"
 
 const ListContainer = () => {
@@ -13,7 +14,7 @@ const ListContainer = () => {
         dispatch(ACTIONS.REQUEST_DATA())
     }, [])
     return (
-        <div>
+        <Template>
             <Table>
                 <Table.Header>
                     <Table.Header.Item>ID</Table.Header.Item>
@@ -24,7 +25,7 @@ const ListContainer = () => {
                     {demo}
                 </Table.Body>
             </Table>
-        </div>
+        </Template>
     )
 }
 

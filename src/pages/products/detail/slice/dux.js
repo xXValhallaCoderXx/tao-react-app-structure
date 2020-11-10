@@ -9,18 +9,19 @@ const initialState = {
     loading: false,
     error: null,
     success: null,
-    data: []
+    data: null
 }
 
 export const TYPE = {
-    REQUEST_DATA: "@@PRODUCTS_LIST/REQUEST_DATA",
-    REQUEST_DATA_SUCCESS: "@@PRODUCTS_LIST/REQUEST_DATA_SUCCESS",
-    REQUEST_DATA_FAILURE: "@@PRODUCTS_LIST/REQUEST_DATA_FAILURE"
+    REQUEST_DATA: "@@PRODUCTS_DETAIL/REQUEST_DATA",
+    REQUEST_DATA_SUCCESS: "@@PRODUCTS_DETAIL/REQUEST_DATA_SUCCESS",
+    REQUEST_DATA_FAILURE: "@@PRODUCTS_DETAIL/REQUEST_DATA_FAILURE"
 }
 
 export const ACTIONS = {
-    REQUEST_DATA: () => ({
-        type: TYPE.REQUEST_DATA
+    REQUEST_DATA: (payload) => ({
+        type: TYPE.REQUEST_DATA,
+        payload
     }),
     REQUEST_DATA_SUCCESS: (payload) => ({
         type: TYPE.REQUEST_DATA_SUCCESS,
@@ -32,23 +33,23 @@ export const ACTIONS = {
     })
 }
 
-export const selectProducts = state => state.productList.data
+export const selectProductDetail = state => state.productDetails.data
 export const selectApiStatus = state => {
     return {
-        loading: state.productList.loading,
-        error: state.productList.error,
-        success: state.productList.success
+        loading: state.productDetails.loading,
+        error: state.productDetails.error,
+        success: state.productDetails.success
     }
 }
 
-export const productListReducer = (state = initialState, action) => {
+export const productDetailReducer = (state = initialState, action) => {
     switch (action.type) {
         case TYPE.REQUEST_DATA:
             return {
                 ...state,
                 loading: true,
                 error: null,
-                data: []
+                data: null
             }
         case TYPE.REQUEST_DATA_SUCCESS:
             return {
@@ -62,7 +63,7 @@ export const productListReducer = (state = initialState, action) => {
                 ...state,
                 loading: true,
                 error: null,
-                data: []
+                data: null
             }
         default:
             return state

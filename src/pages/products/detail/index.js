@@ -1,14 +1,25 @@
 import React from "react"
-import { useSelector } from 'react-redux'
-import { selectUserName } from "../../../shared/slices/user"
-import { selectToast } from "../../../shared/slices/toast"
+import { useParams } from "react-router";
+import { useDispatch, useSelector } from "react-redux"
+
+import { ACTIONS, selectProductDetail, selectApiStatus } from "./slice/dux"
+
+import Template from "shared/templates/Main"
 
 const DetailContainer = () => {
-    const user = useSelector(selectUserName);
-    const toast = useSelector(selectToast);
-    console.log("USER: ", toast)
+    const dispatch = useDispatch();
+    const { id } = useParams();
+    const detail = useSelector(selectProductDetail)
+    const api = useSelector(selectApiStatus)
+
+    React.useEffect(() => {
+        dispatch(ACTIONS.REQUEST_DATA(id))
+    }, [])
+    if (api.loading) {
+        return <div>Loading</div>
+    }
     return (
-        <div>Detail Container</div>
+        <Template>Name: {detail.name}</Template>
     )
 }
 
