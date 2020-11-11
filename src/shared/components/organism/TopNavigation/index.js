@@ -15,20 +15,18 @@ const TopNavigation = () => {
     const toggle = () => setIsOpen(!isOpen);
 
     return (
-        <div>
-            <Navbar color="light" light expand="md">
-                <NavbarBrand>Tao Of React</NavbarBrand>
-                <NavbarToggler onClick={toggle} />
-                <Collapse isOpen={isOpen} navbar>
-                    <Nav className="mr-auto" navbar>
-                        <NavItem>
-                            <NavLink tag={Link} to="/products">Products</NavLink>
-                        </NavItem>
-                    </Nav>
-                    <NavLink tag={Link} to="/">Logout</NavLink>
-                </Collapse>
-            </Navbar>
-        </div>
+        <Navbar color="light" light expand="md">
+            <NavbarBrand>Tao Of React</NavbarBrand>
+            <NavbarToggler onClick={toggle} />
+            <Collapse isOpen={isOpen} navbar>
+                <Nav className="mr-auto" navbar>
+                    <NavItem>
+                        <NavLink tag={Link} to="/products">Products</NavLink>
+                    </NavItem>
+                </Nav>
+                <NavLink tag={Link} to="/">Logout</NavLink>
+            </Collapse>
+        </Navbar>
     );
 }
 
