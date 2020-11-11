@@ -19,7 +19,7 @@ const DetailContainer = () => {
         return <div>Loading</div>
     }
     return (
-        <Template>Name: {detail.name}</Template>
+        <Template title={`Overview: ${detail.name}`}>Name: {detail.name}</Template>
     )
 }
 

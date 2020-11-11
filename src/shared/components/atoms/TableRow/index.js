@@ -1,8 +1,8 @@
 import React from "react"
 
-const TableRow = ({ children }) => {
+const TableRow = ({ children, ...rest }) => {
     return (
-        <tr>
+        <tr {...rest}>
             {children}
         </tr>
     )
