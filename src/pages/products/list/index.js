@@ -1,30 +1,46 @@
 import React from "react"
-import { ACTIONS } from "./slice/dux"
+import { useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux"
-import { selectProducts } from "./slice/dux"
 
-import Template from "shared/templates/Main"
+import { ACTIONS, selectProducts, selectApiStatus } from "./slice/dux"
+
+import Template from "shared/templates/ListView"
 import Table from "shared/components/organism/Table"
 
+const tableColumns = () => {
+    return [
+        {
+            title: "ID",
+            key: "id",
+            render: data => data.id,
+        },
+        {
+            title: "Name",
+            key: "name",
+            render: data => data.name
+        },
+        {
+            title: "Email",
+            key: "email",
+            render: data => data.email
+        }
+    ]
+}
+
 const ListContainer = () => {
+    const history = useHistory()
     const dispatch = useDispatch();
     const products = useSelector(selectProducts)
-    const demo = [{ id: 1, name: "Nate", email: "test@gmail.com" }, { id: 2, name: "Nate 2", email: "test2@gmail.com" }]
+    const { loading } = useSelector(selectApiStatus)
+
     React.useEffect(() => {
         dispatch(ACTIONS.REQUEST_DATA())
     }, [])
+
+    const onRowClick = (row) => history.push(`/products/${row.id}`)
     return (
-        <Template>
-            <Table>
-                <Table.Header>
-                    <Table.Header.Item>ID</Table.Header.Item>
-                    <Table.Header.Item>Name</Table.Header.Item>
-                    <Table.Header.Item>Email</Table.Header.Item>
-                </Table.Header>
-                <Table.Body>
-                    {demo}
-                </Table.Body>
-            </Table>
+        <Template title="Products List">
+            <Table cols={tableColumns()} data={products} onRowClick={onRowClick} loading={loading} />
         </Template>
     )
 }

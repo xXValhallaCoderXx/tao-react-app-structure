@@ -8,7 +8,7 @@ import { Provider } from 'react-redux';
 import store from "./config/config-store"
 
 // Dispatching this here for sake of demo
-import {ACTIONS} from "./shared/slices/user"
+import { ACTIONS } from "./shared/slices/user"
 store.dispatch(ACTIONS.SET_USER({
   firstName: "Renate",
   lastName: "Gouveia",
@@ -16,11 +16,9 @@ store.dispatch(ACTIONS.SET_USER({
 }))
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <RootRoutes />
-    </Provider>
-  </React.StrictMode>,
+  <Provider store={store}>
+    <RootRoutes />
+  </Provider>,
   document.getElementById('root')
 );
 

@@ -1,15 +1,12 @@
 import React from "react"
 
-const TableHead = ({ children }) => {
+const TableHeader = ({ children }) => {
     return (
         <thead>
-            <tr>
-                {React.Children.map(children || null, (child, i) => {
-                    return <tr>{child}</tr>;
-                })}
-            </tr>
+            {children}
         </thead>
+     
     )
 }
 
-export default TableHead
+export default TableHeader

@@ -33,7 +33,7 @@ export const ACTIONS = {
     })
 }
 
-export const selectProductDetail = state => state.productDetails.data
+export const selectProductDetail = state => state.productDetails.data || {}
 export const selectApiStatus = state => {
     return {
         loading: state.productDetails.loading,

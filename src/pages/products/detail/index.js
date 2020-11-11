@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { ACTIONS, selectProductDetail, selectApiStatus } from "./slice/dux"
 
-import Template from "shared/templates/Main"
+import Template from "shared/templates/DetailView"
 
 const DetailContainer = () => {
     const dispatch = useDispatch();

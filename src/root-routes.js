@@ -6,6 +6,7 @@ import {
 
 import Login from "./pages/login"
 import Products from "./pages/products"
+import ProtectedTemplate from "shared/templates/ProtectedPage"
 
 const RootRoutesContainer = () => {
     return (
@@ -14,11 +15,12 @@ const RootRoutesContainer = () => {
                 <Route exact path={["/", "/login"]}>
                     <Login />
                 </Route>
-                <Route path="/products">
-                    <Products />
-                </Route>
+                <ProtectedTemplate>
+                    <Route path="/products">
+                        <Products />
+                    </Route>
+                </ProtectedTemplate>
             </Switch>
-
         </Router >
     )
 }

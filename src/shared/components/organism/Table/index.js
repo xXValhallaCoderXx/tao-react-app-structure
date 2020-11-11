@@ -1,41 +1,32 @@
 import React from "react"
-import Body from "shared/components/atoms/TableBody"
-import Head from "shared/components/atoms/TableHead"
+import { Table } from 'reactstrap';
+import TableBody from "shared/components/atoms/TableBody"
+import TableHead from "shared/components/atoms/TableHead"
 import TableRow from "shared/components/atoms/TableRow"
 
 
-const Table = ({ children }) => {
+const TableContainer = ({ cols, data, onRowClick }) => {
+
+    const handleRowClick = (row) => () =>{
+        onRowClick && onRowClick(row)
+    }
     return (
-        <table>{children}</table>
+        <Table hover striped>
+            <TableHead>
+                <TableRow>
+                    {cols.map((headerItem, index) => <th key={index}>{headerItem.title}</th>)}
+                </TableRow>
+            </TableHead>
+            <TableBody>
+                {data.map((item, index) => (
+                    <TableRow key={index} onClick={handleRowClick(item)}>
+                        {cols.map((col, key) => <td key={key}>{col.render(item)}</td>)}
+                    </TableRow>
+                ))}
+            </TableBody>
+        </Table>
     )
 }
 
-const TableHeader = ({ children }) => {
-    return (
-        <tr style={{ backgroundColor: "red" }}>
-            {children}
-        </tr>
-    )
-}
 
-const TableItem = ({ children }) => {
-    return <th>{children}</th>
-}
-
-const TableBody = ({ children }) => {
-    return children.map(row => {
-        console.log("ROW: ", row)
-        return (
-            <tr>
-                Item
-            </tr>
-        )
-    })
-}
-
-Table.Header = TableHeader;
-Table.Header.Item = TableItem
-Table.Body = TableBody
-
-
-export default Table
+export default TableContainer
