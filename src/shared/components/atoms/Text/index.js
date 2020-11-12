@@ -8,8 +8,8 @@ const variantMapping = {
     h4: "h4",
     h5: "h5",
     h6: "h6",
-    subTitle1: "h5",
-    subTitle2: "h6",
+    subtitle1: "h5",
+    subtitle2: "h6",
     body1: "p",
     body2: "p"
 }
