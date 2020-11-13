@@ -14,6 +14,7 @@ const TopNavigation = () => {
     const [isOpen, setIsOpen] = React.useState(false);
     const toggle = () => setIsOpen(!isOpen);
 
+    
     return (
         <Navbar color="light" light expand="md">
             <NavbarBrand>Tao Of React</NavbarBrand>
