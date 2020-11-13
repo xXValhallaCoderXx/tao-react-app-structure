@@ -1,29 +1,30 @@
 import React from "react"
 import { Table } from 'reactstrap';
-import TableBody from "shared/components/atoms/TableBody"
-import TableHead from "shared/components/atoms/TableHead"
-import TableRow from "shared/components/atoms/TableRow"
+import TBody from "./TableBody"
+import THead from "./TableHead"
+import TableRow from "./TableRow"
 
+// Since TBody / THead / TableRow are exclusive to Table I keep them Table Folder
 
 const TableContainer = ({ cols, data, onRowClick }) => {
 
-    const handleRowClick = (row) => () =>{
+    const handleRowClick = (row) => () => {
         onRowClick && onRowClick(row)
     }
     return (
         <Table hover striped>
-            <TableHead>
+            <THead>
                 <TableRow>
-                    {cols.map((headerItem, index) => <th key={index}>{headerItem.title}</th>)}
+                    {cols.map((headerItem, index) => <THead.Item key={index}>{headerItem.title}</THead.Item>)}
                 </TableRow>
-            </TableHead>
-            <TableBody>
+            </THead>
+            <TBody>
                 {data.map((item, index) => (
                     <TableRow key={index} onClick={handleRowClick(item)}>
-                        {cols.map((col, key) => <td key={key}>{col.render(item)}</td>)}
+                        {cols.map((col, key) => <TBody.Item key={key}>{col.render(item)}</TBody.Item>)}
                     </TableRow>
                 ))}
-            </TableBody>
+            </TBody>
         </Table>
     )
 }

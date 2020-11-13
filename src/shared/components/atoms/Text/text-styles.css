@@ -1,53 +1,67 @@
 .text--variant-h1 {
     font-size: 6rem;
     font-weight: 500;
+    color: #0d1b2a;
   }
   
   .text--variant-h2 {
     font-size: 3.75rem;
     font-weight: 500;
+    color: #0d1b2a;
   }
   
   .text--variant-h3 {
     font-size: 3rem;
     font-weight: 500;
+    color: #0d1b2a;
   }
   
   .text--variant-h4 {
     font-size: 2.125rem;
     font-weight: 500;
+    color: #0d1b2a;
   }
   
   .text--variant-h5 {
     font-size: 1.5rem;
     font-weight: 500;
+    color: #0d1b2a;
   }
   
   .text--variant-h6 {
     font-size: 1.25rem;
     font-weight: 500;
+    color: #0d1b2a;
   }
   
-  .text--variant-subheading1 {
+  .text--variant-subtitle1 {
     font-size: 1rem;
     font-weight: 500;
+    color: #415a77;
   }
   
-  .text--variant-subheading2 {
+  .text--variant-subtitle2 {
     font-size: 0.875rem;
     font-weight: 500;
+    color: #415a77;
   }
   
   .text--variant-body1 {
     font-size: 1rem;
+    color: gray;
   }
   
   .text--variant-body1 {
     font-size: 0.875rem;
+    color: gray;
   }
   
   .text--color-primary {
-    color: gray;
+    color: #0d1b2a
+  }
+
+  .text--color-secondary {
+    color: #415a77;
   }
   
   .text--color-error {

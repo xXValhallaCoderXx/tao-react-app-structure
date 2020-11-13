@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'shared/components/atoms';
 import {
     Collapse,
     Navbar,

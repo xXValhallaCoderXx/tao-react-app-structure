@@ -16,8 +16,11 @@ const variantMapping = {
 
 const Text = ({ className, variant, color, children, ...props }) => {
     const Component = variant ? variantMapping[variant] : "p";
+    function handleColor() {
+        return color ? `text--color-${color}` : ""
+    }
     function handleClasses() {
-        return `text--variant-${variant || "body1"} text--color-${color || "primary"} ${className}`
+        return `text--variant-${variant || "body1"} ${handleColor()} ${className}`
     }
     return (
         <Component className={handleClasses()} {...props}>{children}</Component>
